@@ -1,954 +1,239 @@
-/* ── RESET & BASE ───────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333333;
-  background-color: #f4f7f6;
-  overflow-x: hidden;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ── NAVBAR ─────────────────────────────────── */
-.navbar {
-  background-color: #1a1a2e;
-  padding: 0 32px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar__logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #ffffff;
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-.logo-icon {
-  color: #6c63ff;
-  font-size: 1.5rem;
-}
-
-.navbar__links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.navbar__links a {
-  color: #cccccc;
-  font-size: 0.95rem;
-  transition: color 0.2s;
-}
-
-.navbar__links a:hover {
-  color: #6c63ff;
-}
-
-.btn-group {
-  display: flex;
-  gap: 12px;
-  align-items: right;
-}
-
-.btn-primary {
-  background-color: #6c63ff;
-  color: #ffffff !important;
-  padding: 10px 24px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: background-color 0.2s;
-  display: inline-block;
-}
-
-.btn-primary:hover {
-  background-color: #574fd6;
-}
-
-.btn-secondary {
-  background-color: #transparent 70%;
-  color: #ffffff !important;
-  padding: 10px 24px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: background-color 0.2s;
-  display: inline-block;
-}
-
-.btn-secondary:hover {
-  background: #574fd6 !important;
-}
-
-/* ==============================
-   TOMBOL DARK MODE
-   ============================== */
-.dark-btn {
-  background: transparent;
-  border: 2px solid currentColor;
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-size: .85rem;
-  cursor: pointer;
-  color: inherit;
-  transition: background .3s, color .3s, transform .2s;
-  white-space: nowrap;
-}
-
-.dark-btn:hover {
-  background: rgba(255,255,255,.15);
-  transform: scale(1.05);
-}
-
-.dark-btn:active {
-  transform: scale(.97);
-}
-
-/* ── counter ──────────────── */
-
-.container-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  text-align: center;
-  padding: 60px 20px;
-  color: black;
-}
-
-.counter-section {
-  display: flex;      
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin: 20px 0;
-}
-
-.angka-counter{
-font-size:72px;
-font-weight:bold;
-color:#518ee8;
-}
-
-.counter-btn{
-width:56px;
-height:56px;
-border-radius:50%;
-border:2px solid #2e72b5;
-font-size:28px;
-cursor:pointer;
-}
-
-
-/* ==============================
-   DARK MODE — SEMUA ELEMEN
-   ============================== */
-body.dark-mode {
-  background-color: #0f172a;
-  color: #e2e8f0;
-}
-
-/* Navbar */
-body.dark-mode .navbar {
-  background-color: #1e293b;
-  border-bottom: 1px solid #334155;
-}
-
-/* Hero */
-body.dark-mode .hero {
-  background-color: #0f172a;
-}
-
-/* Section About, Skills, Portfolio, Contact */
-body.dark-mode .about,
-body.dark-mode .contact {
-  background-color: #1e293b;
-}
-
-body.dark-mode .skills,
-body.dark-mode .portfolio {
-  background-color: #0f172a;
-}
-
-/* Skill Card */
-body.dark-mode .skill-card {
-  background-color: #1e293b;
-  border-color: #334155;
-  color: #e2e8f0;
-}
-
-/* Portfolio Card */
-body.dark-mode .portfolio-card {
-  background-color: #1e293b;
-  border-color: #334155;
-}
-
-/* Contact Form Card */
-body.dark-mode .card {
-  background-color: #1e293b;
-  border-color: #334155;
-}
-
-body.dark-mode .card input,
-body.dark-mode .card textarea {
-  background-color: #0f172a;
-  color: #e2e8f0;
-  border-color: #334155;
-}
-
-body.dark-mode .card input::placeholder,
-body.dark-mode .card textarea::placeholder {
-  color: #94a3b8;
-}
-
-/* Footer */
-body.dark-mode .footer {
-  background-color: #1e293b;
-  color: #94a3b8;
-}
-
-/* Link & teks umum */
-body.dark-mode a {
-  color: #93c5fd;
-}
-
-body.dark-mode .section-subtitle {
-  color: #94a3b8;
-}
-
-/* Tombol dark saat dark mode aktif */
-body.dark-mode .dark-btn {
-  border-color: #93c5fd;
-  color: #93c5fd;
-}
-
-body.dark-mode .dark-btn:hover {
-  background: rgba(147,197,253,.15);
-}
-
-/* ── HERO ───────────────────────────────────── */
-.hero {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 32px;
-}
-
-.hero__content {
-  max-width: 800px;
-  text-align: center;
-}
-
-.hero__badge {
-  display: inline-block;
-  background-color: rgba(108, 99, 255, 0.1);
-  color: #a29bfe;
-  border: 1px solid #6c63ff;
-  padding: 6px 20px;
-  border-radius: 99px;
-  font-size: 0.85rem;
-  margin-bottom: 24px;
-}
-
-.hero__title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-.highlight {
-  color: #6c63ff;
-}
-
-.hero__desc {
-  color: #b0b0cc;
-  font-size: 1.1rem;
-  margin-bottom: 36px;
-}
-
-.hero__actions {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn-outline {
-  border: 2px solid #6c63ff;
-  color: #6c63ff;
-  padding: 10px 24px;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: all 0.3s;
-  display: inline-block;
-}
-
-.btn-outline:hover {
-  background-color: #6c63ff;
-  color: #ffffff;
-}
-
-/* ── CONTAINER ──────────────────────────────── */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-/* ── SECTION TITLES (shared) ────────────────── */
-.section-title {
-  font-size: 2.5rem;
-  text-align: center;
-  color: #1a1a2e;
-  margin-bottom: 10px;
-}
-
-.section-subtitle {
-  text-align: center;
-  color: #666;
-  margin-bottom: 60px;
-}
-
-/* ── ABOUT SECTION ──────────────────────────── */
-.about {
-  padding: 100px 0;
-  background-color: #f8f9ff;
-}
-
-.about__wrapper {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-/* Foto */
-.about__photo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  position: sticky;
-  top: 90px;
-}
-
-.about__photo-frame {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid #6c63ff;
-  box-shadow:
-    0 0 0 8px rgba(108, 99, 255, 0.12),
-    0 20px 40px rgba(108, 99, 255, 0.2);
-}
-
-.about__photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.about__name {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1a1a2e;
-  text-align: center;
-}
-
-.about__role {
-  font-size: 0.9rem;
-  color: #6c63ff;
-  font-weight: 600;
-  margin-top: 4px;
-  text-align: center;
-}
-
-/* Info rows */
-.about__content {
-  display: flex;
-  flex-direction: column;
-}
-
-.about__info-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 14px 20px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-  background: #ffffff;
-  border: 1px solid #eee;
-  transition: box-shadow 0.2s;
-}
-
-.about__info-row:hover {
-  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.08);
-}
-
-.about__info-label {
-  font-size: 0.82rem;
-  color: #888;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  min-width: 160px;
-  flex-shrink: 0;
-}
-
-.about__info-value {
-  color: #1a1a2e;
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-/* Timeline pendidikan */
-.about__edu-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1a1a2e;
-  margin-top: 36px;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #f0efff;
-}
-
-.about__edu-list {
-  list-style: none;
-  padding: 0;
-  position: relative;
-}
-
-.about__edu-list::before {
-  content: '';
-  position: absolute;
-  left: 9px;
-  top: 8px;
-  bottom: 8px;
-  width: 2px;
-  background: linear-gradient(to bottom, #6c63ff, rgba(162, 155, 254, 0.2));
-  border-radius: 2px;
-}
-
-.about__edu-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 18px 0;
-  border-bottom: 1px solid #f0efff;
-}
-
-.about__edu-item:last-child {
-  border-bottom: none;
-}
-
-.about__edu-dot {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #fff;
-  border: 3px solid #6c63ff;
-  flex-shrink: 0;
-  margin-top: 3px;
-  position: relative;
-  z-index: 1;
-}
-
-.about__edu-dot--active {
-  background: #6c63ff;
-  box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.2);
-}
-
-.about__edu-school {
-  font-weight: 700;
-  color: #1a1a2e;
-  font-size: 1rem;
-}
-
-.about__edu-year {
-  font-size: 0.8rem;
-  color: #6c63ff;
-  font-weight: 600;
-  margin: 3px 0;
-}
-
-.about__edu-desc {
-  font-size: 0.88rem;
-  color: #666;
-}
-
-/* ── SKILLS SECTION ─────────────────────────── */
-.skills {
-  padding: 100px 0;
-  background-color: #f8f9ff;
-}
-
-.skills__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.skill-card {
-  background: #fdfdfd;
-  border: 1px solid #eee;
-  border-radius: 15px;
-  padding: 40px 30px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.skill-card__icon {
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
-
-.skill-card h3 {
-  margin-bottom: 10px;
-  color: #1a1a2e;
-}
-
-.skill-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-/* ── PORTFOLIO SECTION ───────────────────────── */
-.portfolio {
-  padding: 100px 0;
-  background-color: #f8f9ff;
-}
-
-.portfolio__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-
-.portfolio-card {
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-}
-
-.portfolio-card__image {
-  background: #eee;
-  height: 250px;
-  overflow: hidden;
-}
-
-.portfolio-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.portfolio-card__content {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
-
-.portfolio-card__content h3 {
-  color: #1a1a2e;
-  font-size: 1.2rem;
-}
-
-.portfolio-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.portfolio-card__tags span {
-  background: #f0efff;
-  color: #6c63ff;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-}
-
-/* ── CONTACT SECTION ───────────────────────── */
-.contact {
-  padding: 100px 0;
-  background: radial-gradient(ellipse at 70% 10%, #1a3a5c 0%, #0a1535 40%, #050f20 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.contact::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-  background-size: 120px 120px, 80px 80px;
-  background-position: 0 0, 40px 40px;
-  pointer-events: none;
-}
-
-.contact .section-title {
-  color: #ffffff;
-}
-
-.contact .section-subtitle {
-  color: rgba(160, 210, 255, 0.8);
-}
-
-.contact__wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 50px;
-  align-items: start;
-  position: relative;
-  z-index: 1;
-}
-
-.contact__info {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 36px 30px;
-  backdrop-filter: blur(10px);
-}
-
-.contact__info h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 28px;
-  color: #a8d8ff;
-}
-
-.contact__item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.contact__icon {
-  font-size: 1.3rem;
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-
-.contact__label {
-  font-size: 0.78rem;
-  color: rgba(160, 210, 255, 0.7);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 2px;
-}
-
-.contact__item p:last-child {
-  color: #c8e8ff;
-  font-size: 0.95rem;
-}
-
-.contact__socials {
-  display: flex;
-  gap: 12px;
-  margin-top: 32px;
-}
-
-.contact__socials a {
-  background: rgba(30, 100, 200, 0.2);
-  border: 1px solid rgba(80, 150, 255, 0.4);
-  color: #7ec8ff;
-  padding: 8px 20px;
-  border-radius: 99px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: all 0.2s;
-}
-
-.contact__socials a:hover {
-  background: #1a6fa8;
-  color: #fff;
-  border-color: #1a6fa8;
-}
-
-/* Form kontak */
-.card {
-  background: rgba(10, 40, 80, 0.55);
-  border: 1px solid rgba(80, 150, 255, 0.25);
-  border-radius: 28px;
-  padding: 40px 36px 44px;
-  width: 100%;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 60px rgba(0, 80, 160, 0.35);
-  position: relative;
-  overflow: hidden;
-}
-
-.form-group {
-  margin-bottom: 22px;
-}
-
-input,
-textarea {
-  width: 100%;
-  background: rgba(5, 20, 50, 0.6);
-  border: 1px solid rgba(60, 80, 190, 0.35);
-  border-radius: 14px;
-  padding: 16px 20px;
-  color: #c8e8ff;
-  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
-  resize: none;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: rgba(160, 210, 255, 0.45);
-}
-
-input:focus,
-textarea:focus {
-  border-color: rgba(80, 180, 255, 0.8);
-  box-shadow: 0 0 0 3px rgba(50, 140, 255, 0.15);
-  background: rgba(10, 30, 70, 0.7);
-}
-
-textarea {
-  height: 160px;
-  padding-top: 16px;
-}
-
-.btn-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 28px;
-}
-
-.btn-send {
-  background: linear-gradient(135deg, #1a6fa8, #0ea5e9);
-  color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 50px;
-  padding: 16px 56px;
-  cursor: pointer;
-  letter-spacing: 0.02em;
-  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-  box-shadow: 0 6px 30px rgba(14, 165, 233, 0.45);
-}
-
-.btn-send:hover {
-  transform: translateY(-2px) scale(1.03);
-  filter: brightness(1.1);
-  box-shadow: 0 10px 40px rgba(14, 165, 233, 0.6);
-}
-
-.btn-send:active {
-  transform: scale(0.98);
-}
-
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  pointer-events: none;
-  opacity: 0.18;
-}
-
-.orb-1 {
-  width: 200px;
-  height: 200px;
-  background: #0ea5e9;
-  top: -60px;
-  right: -40px;
-}
-
-.orb-2 {
-  width: 140px;
-  height: 140px;
-  background: #38bdf8;
-  bottom: 20px;
-  left: -30px;
-}
-
-/* ── FOOTER ─────────────────────────────────── */
-.footer {
-  background-color: #1a1a2e;
-  padding: 40px 0;
-  color: white;
-}
-
-.footer__inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.footer__brand {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #6c63ff;
-}
-
-.footer__copy {
-  color: #aaa;
-  font-size: 0.85rem;
-}
-
-.footer__links {
-  display: flex;
-  gap: 20px;
-}
-
-.footer__links a {
-  color: #cccccc;
-  font-size: 0.85rem;
-  transition: color 0.2s;
-}
-
-.footer__links a:hover {
-  color: #6c63ff;
-}
-
-/* ── MEDIA QUERIES ─────────────────────────── */
-@media (max-width: 992px) {
-  .about__wrapper {
-    grid-template-columns: 1fr;
+// ============================================================
+// script.js — Portfolio Olla Ramadhani
+// ============================================================
+
+let count = 0;
+const display = document.querySelector('#angka');
+document.querySelector('#btn-plus').addEventListener('click', function() {
+ count++;
+ display.textContent = count;
+});
+document.querySelector('#btn-min').addEventListener('click', function() {
+ if (count > 0) count--; // tidak boleh minus
+ display.textContent = count;
+});
+
+// ==============================
+// FITUR 1: DARK MODE + LOCAL STORAGE
+// ==============================
+
+const darkToggleBtn = document.querySelector('#dark-toggle');
+const body = document.body;
+
+// Terapkan mode yang tersimpan saat halaman dimuat
+if (localStorage.getItem('mode') === 'dark') {
+  body.classList.add('dark-mode');
+  darkToggleBtn.textContent = '☀️ Light Mode';
+}
+
+darkToggleBtn.addEventListener('click', function () {
+  body.classList.toggle('dark-mode');
+  const isDark = body.classList.contains('dark-mode');
+  darkToggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+  localStorage.setItem('mode', isDark ? 'dark' : 'light');
+});
+
+
+// ==============================
+// FITUR 2: NAVBAR — SCROLL SHADOW & ACTIVE LINK
+// ==============================
+
+const navbar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.navbar__links a');
+const sections = document.querySelectorAll('section[id], header[id]');
+
+// Tambah shadow saat scroll
+window.addEventListener('scroll', function () {
+  navbar.classList.toggle('navbar--scrolled', window.scrollY > 50);
+  highlightActiveLink();
+});
+
+// Tandai link aktif berdasarkan posisi scroll
+function highlightActiveLink() {
+  let currentId = '';
+
+  sections.forEach(section => {
+    const top = section.offsetTop - 80;
+    if (window.scrollY >= top) {
+      currentId = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${currentId}`) {
+      link.classList.add('active');
+    }
+  });
+}
+
+
+// ==============================
+// FITUR 3: SMOOTH SCROLL UNTUK SEMUA ANCHOR LINK
+// ==============================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+
+    const target = document.querySelector(targetId);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+
+// ==============================
+// FITUR 4: VALIDASI FORM KONTAK
+// ==============================
+
+const contactCard  = document.querySelector('.card');
+const inputNama    = contactCard.querySelector('input[type="text"]');
+const inputEmail   = contactCard.querySelector('input[type="email"]');
+const inputPesan   = contactCard.querySelector('textarea');
+const btnKirim     = contactCard.querySelector('.btn-send');
+
+// Buat elemen feedback dan sisipkan sebelum tombol
+const formFeedback = document.createElement('p');
+formFeedback.className = 'feedback';
+contactCard.querySelector('.btn-wrap').insertAdjacentElement('beforebegin', formFeedback);
+
+function tampilkanPesan(teks, tipe) {
+  formFeedback.textContent = teks;
+  formFeedback.className = `feedback feedback--${tipe}`;
+
+  // Hilangkan pesan setelah 5 detik
+  setTimeout(() => {
+    formFeedback.textContent = '';
+    formFeedback.className = 'feedback';
+  }, 5000);
+}
+
+function isEmailValid(email) {
+  const regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+  return regex.test(email);
+}
+
+btnKirim.addEventListener('click', function () {
+  const nama  = inputNama.value.trim();
+  const email = inputEmail.value.trim();
+  const pesan = inputPesan.value.trim();
+
+  // Reset highlight error
+  [inputNama, inputEmail, inputPesan].forEach(el => el.classList.remove('input--error'));
+
+  if (nama === '' || email === '' || pesan === '') {
+    tampilkanPesan('⚠️ Semua field harus diisi!', 'error');
+    if (nama === '')  inputNama.classList.add('input--error');
+    if (email === '') inputEmail.classList.add('input--error');
+    if (pesan === '') inputPesan.classList.add('input--error');
+    return;
   }
 
-  .about__photo {
-    position: static;
+  if (!isEmailValid(email)) {
+    tampilkanPesan('⚠️ Format email tidak valid!', 'error');
+    inputEmail.classList.add('input--error');
+    return;
   }
 
-  .skills__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  tampilkanPesan(`✅ Pesan berhasil dikirim! Terima kasih, ${nama} 🎉`, 'success');
 
-  .portfolio__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  // Reset form
+  inputNama.value  = '';
+  inputEmail.value = '';
+  inputPesan.value = '';
+});
 
-  .contact__wrapper {
-    grid-template-columns: 1fr;
-  }
+
+// ==============================
+// FITUR 5: ANIMASI MUNCUL SAAT SCROLL (INTERSECTION OBSERVER)
+// ==============================
+
+const revealElements = document.querySelectorAll(
+  '.skill-card, .portfolio-card, .about__edu-item, .contact__item'
+);
+
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -40px 0px'
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target); // Animasi hanya sekali
+    }
+  });
+}, observerOptions);
+
+revealElements.forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 4) * 80}ms`; // stagger per baris
+  revealObserver.observe(el);
+});
+
+
+// ==============================
+// FITUR 6: SKILL CARD — HOVER TILT EFEK
+// ==============================
+
+document.querySelectorAll('.skill-card').forEach(card => {
+  card.addEventListener('mousemove', function (e) {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 14;
+    const y = ((e.clientY - rect.top)  / rect.height - 0.5) * 14;
+    card.style.transform = `perspective(600px) rotateX(${-y}deg) rotateY(${x}deg) translateY(-4px)`;
+  });
+
+  card.addEventListener('mouseleave', function () {
+    card.style.transform = 'perspective(600px) rotateX(0) rotateY(0) translateY(0)';
+  });
+});
+
+
+// ==============================
+// FITUR 7: TYPING EFFECT PADA HERO SUBTITLE
+// ==============================
+
+const typingTarget = document.querySelector('.hero__title .highlight');
+if (typingTarget) {
+  const originalText = typingTarget.textContent;
+  typingTarget.textContent = '';
+  typingTarget.style.borderRight = '2px solid currentColor';
+
+  let charIndex = 0;
+  const typeInterval = setInterval(() => {
+    typingTarget.textContent += originalText[charIndex];
+    charIndex++;
+    if (charIndex >= originalText.length) {
+      clearInterval(typeInterval);
+      // Kedip kursor berhenti setelah 2 detik
+      setTimeout(() => { typingTarget.style.borderRight = 'none'; }, 2000);
+    }
+  }, 80);
 }
 
-/* tambahan untuk script */
-box-shadow: 0 4px 20px rgba(0,0,0,.12); }
 
-/* Nav active link */
-.navbar__links a.active { color: var(--accent, #6366f1); font-weight: 700; }
+// ==============================
+// FITUR 8: PORTFOLIO CARD — PREVIEW GAMBAR ZOOM
+// ==============================
 
-/* Scroll reveal */
-.skill-card, .portfolio-card, .about__edu-item, .contact__item {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity .5s ease, transform .5s ease;
-}
-.skill-card.visible, .portfolio-card.visible,
-.about__edu-item.visible, .contact__item.visible {
-  opacity: 1; transform: translateY(0);
-}
+document.querySelectorAll('.portfolio-card__image img').forEach(img => {
+  img.addEventListener('click', function () {
+    const overlay = document.createElement('div');
+    overlay.className = 'img-overlay';
+    overlay.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+    document.body.appendChild(overlay);
 
-/* Form feedback */
-.feedback { font-size: .9rem; margin-bottom: .5rem; min-height: 1.2em; }
-.feedback--error   { color: #ef4444; }
-.feedback--success { color: #22c55e; }
-.input--error { border-color: #ef4444 !important; }
+    // Fade in
+    requestAnimationFrame(() => overlay.classList.add('img-overlay--visible'));
 
-/* Image overlay */
-.img-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,.85);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 9999; opacity: 0; transition: opacity .3s;
-  cursor: zoom-out;
-}
-.img-overlay--visible { opacity: 1; }
-.img-overlay img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
-
-/* animasi angka counter */
-
-@keyframes bounce{
-0%{transform:scale(1);}
-50%{transform:scale(1.3);}
-100%{transform:scale(1);}
-}
-
-#angka-counter{
-animation:bounce 0.3s;
-}
-
-@media (max-width: 768px) {
-  .navbar__links {
-    display: none;
-  }
-
-  .about__info-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  .about__info-label {
-    min-width: unset;
-  }
-
-  .skills__grid,
-  .portfolio__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero__title {
-    font-size: 2.5rem;
-  }
-
-  .footer__inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .card {
-    padding: 28px 20px 36px;
-  }
-}
+    overlay.addEventListener('click', () => {
+      overlay.classList.remove('img-overlay--visible');
+      setTimeout(() => overlay.remove(), 300);
+    });
+  });
+});

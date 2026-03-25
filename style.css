@@ -146,26 +146,39 @@ a {
 }
 
 .counter-section {
-  display: flex;      
-  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.counter-container {
+  display: flex;
   align-items: center;
-  gap: 20px;
-  margin: 20px 0;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0;
 }
 
-.angka-counter{
-font-size:72px;
-font-weight:bold;
-color:#518ee8;
+.angka-counter {
+  font-size: 72px;
+  font-weight: bold;
+  color: #2e74b5;
+  min-width: 100px;
 }
 
-.counter-btn{
-width:56px;
-height:56px;
-border-radius:50%;
-border:2px solid #2e72b5;
-font-size:28px;
-cursor:pointer;
+.counter-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #2e74b5;
+  background: white;
+  font-size: 28px;
+  cursor: pointer;
+  color: #2e74b5;
+}
+
+.counter-btn:hover {
+  background: #2e74b5;
+  color: white;
 }
 
 

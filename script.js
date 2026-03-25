@@ -3,14 +3,30 @@
 // ============================================================
 
 let count = 0;
-const display = document.querySelector('#angka');
-document.querySelector('#btn-plus').addEventListener('click', function() {
- count++;
- display.textContent = count;
+const angkaDisplay = document.querySelector('#angka-counter');
+const pesanDisplay = document.querySelector('#counter-pesan');
+const btnTambah = document.querySelector('#btn-tambah');
+const btnKurang = document.querySelector('#btn-kurang');
+
+function updatePesan(n) {
+  if (n === 0) pesanDisplay.textContent = 'Yuk mulai minum air!';
+  else if (n < 4) pesanDisplay.textContent = 'Kurang minum nih...';
+  else if (n < 8) pesanDisplay.textContent = 'Lumayan, terus tambah! 💧';
+  else pesanDisplay.textContent = 'Keren! Sudah cukup minum air hari ini! 🎉';
+}
+
+btnTambah.addEventListener('click', function () {
+  count++;
+  angkaDisplay.textContent = count;
+  updatePesan(count);
 });
-document.querySelector('#btn-min').addEventListener('click', function() {
- if (count > 0) count--; // tidak boleh minus
- display.textContent = count;
+
+btnKurang.addEventListener('click', function () {
+  if (count > 0) {
+    count--;
+    angkaDisplay.textContent = count;
+    updatePesan(count);
+  }
 });
 
 // ==============================
